@@ -1,0 +1,15 @@
+class Solution {
+    public int fib(int n) {
+        return (int) fibf(n)[0];
+    }
+    static long[] fibf(long n){
+        if(n==0) return new long[]{0,1};
+        long[] half=fibf(n/2);
+        long a=half[0];
+        long b=half[1];
+        long c=a*(2*b-a);
+        long d= a*a+b*b;
+        if(n%2==0) return new long[]{c,d};
+        else return new long[]{d, c+d};
+    }
+}
