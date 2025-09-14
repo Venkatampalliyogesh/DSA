@@ -1,0 +1,20 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		int n=304015954;
+		System.out.println(excel(n));
+	}
+	public static String excel(int n){
+	    StringBuilder sb=new StringBuilder();
+	    while(n>0){
+	        n--;
+	        int rem=n%26;
+	        char c=(char)('a'+rem);
+	        sb.append(c);
+	        n=n/26;
+	    }
+	    return sb.reverse().toString();
+	}
+	
+}
