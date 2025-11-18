@@ -1,0 +1,28 @@
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String s="iamscared";
+        System.out.println(lenghtOf(s));
+    }
+    public static int lenghtOf(String s){
+        int n=s.length();
+        int maxl=0;
+        Set<Character> c= new HashSet<>();
+        int i=0;
+        for(int j=0; j<n; j++){
+            if(!c.contains(s.charAt(j))){
+                c.add(s.charAt(j));
+                maxl= Math.max(maxl, j-i+1);
+            }
+            else{
+                while(c.contains(s.charAt(j))){
+                    c.remove(s.charAt(i));
+                    i++;
+                }
+            }
+            c.add(s.charAt(j));
+        }
+        return maxl;
+    }
+}
